@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+var pro = new Array();
+pro["浙江"]=["杭州","宁波"];
+pro["湖南"]=["长沙","衡阳"];
+
+
+
+function init(){
+	var province = document.getElementById("province");
+	for ( i in pro){
+		province.options.add(new Option(i,i));
+	}
+}
+
+
+function changeCity(){
+	 var province = document.getElementById("province").value;
+     var city = document.getElementById("city");
+	 city.options.length=0;
+	 
+	for ( i in pro){
+		if(province==i){
+			for(j in pro[i]){
+		  		city.options.add(new Option(pro[i][j],pro[i][j]));
+			}
+			break;
+		}
+	}
+}
+
+function check(){
+	var str ="" ;
+     var username = document.getElementById("username").value ; 
+	 var password = document.getElementsByName("password")[0].value ;
+	 if(username=="lisi" && password =="123" ){
+          document.getElementById("username").readOnly= true ;
+	 }else{
+	     alert("请输入正确的用户名或密码!");
+	 }
+	 
+
+}
+
+</script>
+</head>
+
+<body >
+
+<form id="form1" name="form1" method="post" action="main.html"  >
+username:<input name="username" type="text" id="username" value="lisi" size="20"  /><Br />
+password:<input name="password" type="password" value="123456" size="20" maxlength="20" /><Br />
+<Br />
+<input type="submit" value="提交" /><input id="resetBtn" type="reset" value="重置" />
+</form>
+</body>
+
+</html>

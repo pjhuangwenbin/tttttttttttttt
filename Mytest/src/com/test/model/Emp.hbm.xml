@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+<!--
+hibernate映射文件是站在对象的角度上来写的:
+一个映射文件里可以写多个class,不过不建议这样写,最好是一个实体对象一个映射文件.
+class name的值指的是User类 table="tUser"是数据库是对应的表名,不写的话,值和name的值是一样的
+如果表名在数据库中是关键字的话,用单引号引起来即可. table="'User'",属性名冲突也类似
+id name的值指的是User类的字段id column="id"是表所对应的主键, 可以不写,默认是和name的值一样的
+generator class="uuid" 指的是id的生成器.会生成32位的一个自符串,不会重复
+普通属性用property来描述 name="name" 指的是User类的属性为name column="name"是数据库表中的列的名称 不写的话值和name的值一样
+ -->
+<class name="com.test.model.Emp" table="Emp"> 
+    <id name="empno" column="empno" type="integer" >
+	  <generator class="assigned" />
+	</id>
+
+    <property name="ename"  column="ename" length="50"/>
+    <property name="deptno" column="deptno" />
+    <property name="sal"  column="sal" />
+</class>
+
+</hibernate-mapping>

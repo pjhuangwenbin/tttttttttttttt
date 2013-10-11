@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function regTest(){
+	var  reg = /^[a-z][0-9]{3}$/i;
+    var empno=document.getElementById("empno").value;
+    var flag = reg.test(empno);
+    alert(flag);
+}
+
+</script>
+</head>
+
+<body >
+<form action="../servlet/EmpServlet?flag=add" method="post">
+
+
+<p>emp info:</p>
+<p>empno:
+  <input name="empno" type="text" id="empno" value="10" size="20" />
+  <Br />
+  ename:
+  <input name="ename" type="text"  value="lisi" size="20" />
+  <Br />
+  sal:
+  <input name="sal" type="text"  value="4000" size="20" />
+  <Br />
+  deptno:
+  <select name="deptno" size="1"> 
+    <option value="10">ISO</option>
+    <option value="20">admin</option>
+    <option value="30" selected>sale</option>
+    <option value="40">market</option>
+    <option value="50">infra</option>
+  </select>
+  </p>
+</p>
+<p>
+  <label>
+    <input type="submit" name="Submit" value="提交" />
+  </label>
+  <label>
+  <input type="reset" name="Submit2" value="重置" />
+   <input type="button" name="Submit" value="reg test" onclick="regTest()" />
+  </label>
+  
+  </form>
+  
+</p>
+</body>
+</html>
